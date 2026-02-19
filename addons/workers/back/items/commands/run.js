@@ -10,22 +10,18 @@ commands.Item({
 	in: {
 		code: ['string', null, true],
 		input: ['object', null, true],
-		schema: ['object', null, true],
+		schema: {
+			type: 'object',
+			required: true,
+			config: {
+				input: ['object', null, true],
+				output: ['object', null, true],
+			},
+		},
 	},
 	callback: async function(properties, resolve)
 	{
 		const { code, input, schema } = properties;
-
-		/* Validate schema structure */
-		if(!schema.input || typeof schema.input !== 'object')
-		{
-			return resolve(null, 'schema.input is required and must be an object', 400);
-		}
-
-		if(!schema.output || typeof schema.output !== 'object')
-		{
-			return resolve(null, 'schema.output is required and must be an object', 400);
-		}
 
 		/* Validate input against schema */
 		try
