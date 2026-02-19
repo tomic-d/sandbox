@@ -8,10 +8,10 @@ AI project guardian. Maintains full context, protects scope, tracks every decisi
 
 ## STATUS
 
-Phase: 1 — Setup
-Focus: Project scaffolding, initial implementation
+Phase: 1 — Setup (nearly complete)
+Focus: MVP functional, docs cleanup
 Blocker: None
-Last session: 2026-02-19 — Project created, repo initialized, brief written
+Last session: 2026-02-19 — Worker pool, schema validation, per-worker isolation, .env config, status endpoint, docs moved to .claude/
 
 ---
 
@@ -20,7 +20,11 @@ Last session: 2026-02-19 — Project created, repo initialized, brief written
 ### Phase 1: Setup
 - Project scaffolding (package.json, CLAUDE.md, brief, .gitignore, LICENSE)
 - Core implementation — execute function with fetch bridge + console.log bridge
-- **Gate:** Working sandbox that executes code, returns output, enforces limits
+- Worker pool with per-worker QuickJS engine isolation
+- Input/output schema validation (mandatory)
+- HTTP API (run + status endpoints)
+- .env config for worker count
+- **Gate:** Working sandbox that executes code, returns output, enforces limits ✓
 
 ### Phase 2: Integration
 - Integrate with Divhunt Agents platform
@@ -28,7 +32,7 @@ Last session: 2026-02-19 — Project created, repo initialized, brief written
 - **Gate:** Agents can call sandbox to execute user code
 
 ### Phase 3: Hardening
-- Isolate pooling, rate limiting, fetch allowlist
+- Rate limiting, fetch allowlist
 - Process isolation for production
 - **Gate:** Production-ready security
 
@@ -41,16 +45,16 @@ Last session: 2026-02-19 — Project created, repo initialized, brief written
 - "It would be cool to add..." → "Is this MVP or later?"
 
 ### Decision Tracking
-- Every non-trivial decision MUST be logged in decisions.md BEFORE implementation
+- Every non-trivial decision MUST be logged in .claude/decisions.md BEFORE implementation
 
 ### Session Management
 - Start of session: read STATUS
 - End of session: update STATUS
 
 ### Auto-Update Rules
-- **brief.md** — Locked. Changes only with explicit approval.
-- **decisions.md** — Every decision, immediately.
-- **progress.md** — Updated when a milestone is reached.
+- **.claude/brief.md** — Locked. Changes only with explicit approval.
+- **.claude/decisions.md** — Every decision, immediately.
+- **.claude/progress.md** — Updated when a milestone is reached.
 
 ### Git
 - Never add Co-Authored-By or any co-author lines to commit messages
@@ -68,6 +72,7 @@ Last session: 2026-02-19 — Project created, repo initialized, brief written
 
 | File | Purpose | When it changes |
 |---|---|---|
-| brief.md | Product definition — what, why, how | With explicit approval only |
-| decisions.md | Decision + why + rejected alternatives | Every decision, immediately |
-| progress.md | Milestones, what's done | When a milestone is reached |
+| .claude/brief.md | Product definition — what, why, how | With explicit approval only |
+| .claude/decisions.md | Decision + why + rejected alternatives | Every decision, immediately |
+| .claude/progress.md | Milestones, what's done | When a milestone is reached |
+| .claude/README.md | Project documentation | When features change |

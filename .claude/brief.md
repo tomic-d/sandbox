@@ -69,13 +69,13 @@ User writes JS code in UI
 Host receives code + input data
         │
         ▼
-Create QuickJS Wasm sandbox (memory limit: 128MB)
+Create QuickJS Wasm sandbox (memory limit: 16MB)
         │
         ▼
 Configure: fetch enabled, console.log bridge, input as env
         │
         ▼
-Execute user code (timeout: 5s)
+Execute user code (timeout: 10s)
         │
         ▼
 Return output or error
@@ -99,8 +99,8 @@ Sandbox disposed
 
 | Resource | Limit |
 |---|---|
-| Memory | 128 MB per execution |
-| Execution time | 5,000 ms (5 seconds) |
+| Memory | 16 MB per execution |
+| Execution time | 10,000 ms (10 seconds) |
 | Max stack size | Default (QuickJS managed) |
 
 ---
@@ -109,9 +109,9 @@ Sandbox disposed
 
 | Scenario | Behavior |
 |---|---|
-| Code throws an error | Caught, returned as `{ ok: false, error: "..." }` |
-| Timeout exceeded (5s) | QuickJS terminates execution, returns timeout error |
-| Memory exceeded (128MB) | QuickJS kills sandbox, returns memory error |
+| Code throws an error | Caught, thrown as error |
+| Timeout exceeded (10s) | QuickJS terminates execution, returns timeout error |
+| Memory exceeded (16MB) | QuickJS kills sandbox, returns memory error |
 | Invalid JavaScript syntax | Caught at eval, returned as parse error |
 | Fetch fails (network error) | Error propagated to sandbox as exception |
 
@@ -121,7 +121,6 @@ Sandbox disposed
 
 Not in scope for MVP.
 
-- Sandbox pooling
 - Fetch allowlist
 - Rate limiting
 - Response size limits
