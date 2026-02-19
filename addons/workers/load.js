@@ -11,4 +11,7 @@ import '#workers/item/functions/run.js';
 import '#workers/items/commands/run.js';
 import '#workers/items/commands/status.js';
 
+/* Events */
+import '#workers/events/ready.js';
+
 export default workers;

@@ -134,7 +134,7 @@ Logs are returned in the `logs` array of the response.
 ## Architecture
 
 ```
-addons/workers/back/
+addons/workers/
 ├── addon.js              — Worker addon (id, status, runner)
 ├── load.js               — Wires everything together
 ├── functions/

@@ -1,6 +1,6 @@
 import divhunt from 'divhunt';
 
-const workers = divhunt.Addon('sandbox.workers', (addon) =>
+const workers = divhunt.Addon('workers', (addon) =>
 {
 	addon.Field('id',      ['string|number']);
 	addon.Field('status',  ['string', 'idle']);
