@@ -52,7 +52,9 @@ Schema format follows [DataDefine](https://github.com/tomic-d/framework) — `["
         "output": { "value": 30 },
         "logs": []
     },
-    "code": 200
+    "message": "Command 'workers:run' executed successfully.",
+    "code": 200,
+    "time": "22.21"
 }
 ```
 
@@ -70,7 +72,10 @@ Returns worker pool status.
         "idle": 9,
         "busy": 1,
         "loading": 0
-    }
+    },
+    "message": "Command 'workers:status' executed successfully.",
+    "code": 200,
+    "time": "0.85"
 }
 ```
 
