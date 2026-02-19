@@ -9,5 +9,6 @@ import '#workers/item/functions/run.js';
 
 /* Commands */
 import '#workers/items/commands/run.js';
+import '#workers/items/commands/status.js';
 
 export default workers;
