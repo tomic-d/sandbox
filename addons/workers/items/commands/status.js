@@ -25,9 +25,18 @@ commands.Item({
 		{
 			const status = item.Get('status');
 
-			if(status === 'idle') idle++;
-			else if(status === 'busy') busy++;
-			else if(status === 'loading') loading++;
+			if(status === 'idle')
+			{
+				idle++;
+			}
+			else if(status === 'busy')
+			{
+				busy++;
+			}
+			else if(status === 'loading')
+			{
+				loading++;
+			}
 
 			list.push({ id: item.Get('id'), status });
 		}
