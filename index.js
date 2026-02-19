@@ -9,8 +9,26 @@ for(let i = 0; i < count; i++)
 	workers.Item({ id: `worker-${i + 1}` });
 }
 
-/* Init engine */
-await workers.Fn('init');
+/* Wait for all workers to be ready */
+await new Promise((resolve) =>
+{
+	const check = () =>
+	{
+		const items = Object.values(workers.Items());
+		const ready = items.every(item => item.Get('status') === 'idle');
+
+		if(ready)
+		{
+			resolve();
+		}
+		else
+		{
+			setTimeout(check, 100);
+		}
+	};
+
+	check();
+});
 
 /* Start HTTP server */
 commands.Fn('http.server', 3000, {
