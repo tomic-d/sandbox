@@ -1,8 +1,8 @@
-# Divhunt Sandbox
+# Sandbox
 
 Secure JavaScript execution environment for untrusted code using QuickJS WebAssembly sandbox.
 
-Built for the [Divhunt Agents](https://github.com/tomic-d/agents) platform — runs user-written JavaScript callbacks in isolated sandboxes with controlled HTTP access.
+Built for the [Agents](https://github.com/tomic-d/agents) platform — runs user-written JavaScript callbacks in isolated sandboxes with controlled HTTP access.
 
 ## Quick Start
 
@@ -42,7 +42,7 @@ Executes JavaScript code in an isolated sandbox worker.
 }
 ```
 
-Schema format follows [Divhunt DataDefine](https://github.com/tomic-d/framework) — `["type", default, required]`.
+Schema format follows [DataDefine](https://github.com/tomic-d/framework) — `["type", default, required]`.
 
 **Response:**
 
