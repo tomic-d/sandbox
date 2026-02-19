@@ -19,6 +19,10 @@ commands.Item({
 			},
 		},
 	},
+	out: {
+		output: ['object'],
+		logs: ['array'],
+	},
 	callback: async function(properties, resolve)
 	{
 		const { code, input, schema } = properties;
@@ -42,16 +46,25 @@ commands.Item({
 		}
 
 		/* Execute */
-		const result = await worker.Fn('run', code, input);
+		let result;
+
+		try
+		{
+			result = await worker.Fn('run', code, input);
+		}
+		catch(error)
+		{
+			return resolve(null, error.message, 500);
+		}
 
 		/* Validate output against schema */
-		if(result.ok && result.data !== null)
+		if(result.output !== null)
 		{
 			try
 			{
-				const output = typeof result.data === 'object' ? result.data : { value: result.data };
+				const output = typeof result.output === 'object' ? result.output : { value: result.output };
 				divhunt.DataDefine(output, schema.output);
-				result.data = output;
+				result.output = output;
 			}
 			catch(error)
 			{
