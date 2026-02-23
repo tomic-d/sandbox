@@ -1,7 +1,7 @@
-import divhunt from 'divhunt';
+import onetype from 'onetype';
 import workers from '#workers/addon.js';
 
-divhunt.AddonReady('workers', () =>
+onetype.AddonReady('workers', () =>
 {
 	const count = parseInt(process.env.WORKERS) || 10;
 

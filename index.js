@@ -1,6 +1,6 @@
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
-import commands from 'divhunt/commands';
+import commands from 'onetype/commands';
 import '#workers/load.js';
 
 /* Load .env */

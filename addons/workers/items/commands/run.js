@@ -1,5 +1,5 @@
-import divhunt from 'divhunt';
-import commands from 'divhunt/commands';
+import onetype from 'onetype';
+import commands from 'onetype/commands';
 import workers from '#workers/addon.js';
 
 commands.Item({
@@ -30,7 +30,7 @@ commands.Item({
 		/* Validate input against schema */
 		try
 		{
-			divhunt.DataDefine(input, schema.input);
+			onetype.DataDefine(input, schema.input);
 		}
 		catch(error)
 		{
@@ -63,7 +63,7 @@ commands.Item({
 			try
 			{
 				const output = typeof result.output === 'object' ? result.output : { value: result.output };
-				divhunt.DataDefine(output, schema.output);
+				onetype.DataDefine(output, schema.output);
 				result.output = output;
 			}
 			catch(error)

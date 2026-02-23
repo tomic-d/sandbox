@@ -2,7 +2,7 @@
 
 Secure JavaScript execution environment for untrusted code using QuickJS WebAssembly sandbox.
 
-Built for the [Agents](https://github.com/tomic-d/agents) platform — runs user-written JavaScript callbacks in isolated sandboxes with controlled HTTP access.
+Built for the [OneType](https://github.com/tomic-d/onetype) platform — runs user-written JavaScript callbacks in isolated sandboxes with controlled HTTP access.
 
 ## Quick Start
 
