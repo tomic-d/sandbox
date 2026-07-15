@@ -1,8 +1,10 @@
 # Sandbox
 
-Secure JavaScript execution environment for untrusted code using QuickJS WebAssembly sandbox.
+**Run code you don't trust, safely.** A secure execution environment for untrusted JavaScript, built on a QuickJS WebAssembly sandbox.
 
-Built for the [OneType](https://github.com/tomic-d/onetype) platform — runs user-written JavaScript callbacks in isolated sandboxes with controlled HTTP access.
+The moment an AI agent or a user can write code that your server runs, you have a problem: that code could read your files, hit your network, or crash your process. This solves it. Untrusted code runs fully isolated inside WebAssembly — it gets exactly the capabilities you hand it (input data, controlled HTTP) and nothing else. No filesystem, no `process`, no `require`.
+
+Built by [Dejan Tomic](https://github.com/tomic-d) for the [Agents](https://github.com/tomic-d/agents) orchestrator, to run model-generated callbacks without ever trusting them. A pooled set of workers keeps it fast under load.
 
 ## Quick Start
 
